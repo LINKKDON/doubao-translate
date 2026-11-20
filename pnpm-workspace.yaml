@@ -1,0 +1,4 @@
+# The repository root is the magpie plugin package; `worker/` is the Cloudflare
+# Worker build that bundles the shared core from `src/`.
+packages:
+  - worker
