@@ -1,0 +1,44 @@
+{
+  "name": "doubao-translate-worker",
+  "version": "0.6.0",
+  "private": true,
+  "description": "Cloudflare Worker build of doubao-translate: OpenAI-compatible /v1/chat/completions and /v1/models over Doubao web translation.",
+  "type": "module",
+  "license": "MIT",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "build": "node scripts/build.mjs && node --check worker.js && node test-hardening.mjs && node check-size.mjs",
+    "check": "node scripts/build.mjs --check",
+    "test": "node test-hardening.mjs",
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy"
+  },
+  "cloudflare": {
+    "bindings": {
+      "API_KEY": {
+        "description": "Required. A long random string (16+ chars, no spaces) that clients send as `Authorization: Bearer <key>`."
+      },
+      "DOUBAO_SESSION_ID": {
+        "description": "填写本人豆包账号的 sessionid 值即可（`sessionid=` 之后的那一段）；也可填完整 Cookie Header 或浏览器导出的 Cookie JSON。只需要 sessionid（或 sessionid_ss）。旧变量名 DOUBAO_COOKIE 仍兼容。"
+      },
+      "DOUBAO_DEFAULT_TARGET_LANG": {
+        "description": "Optional. Default target language code, e.g. zh, en, ja. Defaults to zh."
+      },
+      "DOUBAO_DEFAULT_SCENE": {
+        "description": "Optional. Default translation scene, 1-6. Defaults to 2."
+      },
+      "DOUBAO_MAX_CONCURRENCY": {
+        "description": "Optional. Max concurrent upstream batches per request, 1-4. Defaults to 4."
+      }
+    }
+  },
+  "devDependencies": {
+    "esbuild": "^0.28.2",
+    "wrangler": "^4.148.0"
+  },
+  "overrides": {
+    "sharp": "0.35.5"
+  }
+}

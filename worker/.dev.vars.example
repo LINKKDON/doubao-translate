@@ -1,0 +1,10 @@
+# Generate your own random key (at least 16 characters, no whitespace).
+API_KEY=
+# Paste the sessionid value alone (the part after `sessionid=`), or a full Cookie
+# header / a browser-exported Cookie JSON. Only sessionid (or sessionid_ss) is required.
+DOUBAO_SESSION_ID=
+
+# Optional variables (defaults shown). See README for details.
+# DOUBAO_DEFAULT_TARGET_LANG=zh
+# DOUBAO_DEFAULT_SCENE=2
+# DOUBAO_MAX_CONCURRENCY=4
