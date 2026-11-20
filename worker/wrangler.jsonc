@@ -10,7 +10,7 @@
   "workers_dev": true,
   "minify": true,
   // API_KEY 与 DOUBAO_SESSION_ID 由 Cloudflare 面板「运行时变量和密钥」以明文变量维护。
-  // keep_vars 让 wrangler deploy 保留面板上的明文/JSON 变量，避免被覆盖或删除。
+  // keep_vars 让 wrangler deploy 保留面板上的明文/JSON 变量，避免被覆盖或删除。 
   "keep_vars": true,
   "vars": {
     "DOUBAO_DEFAULT_TARGET_LANG": "zh",
